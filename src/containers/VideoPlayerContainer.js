@@ -8,7 +8,7 @@ const VideoPlayerContainer = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    video: state.currentVideoReducer ? state.currentVideoReducer.video : { video: null }
+    video: state.currentVideo
   };
 };
 

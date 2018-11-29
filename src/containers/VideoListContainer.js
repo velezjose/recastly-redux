@@ -5,7 +5,7 @@ import changeVideo from './../actions/currentVideo.js';
 
 const VideoListContainer = (props) => {
   return (
-    <VideoList videos={props.videos} handleVideoListEntryTitleClick={props.ourChangeVideo}/>
+    <VideoList videos={props.videos} handleVideoListEntryTitleClick={props.handleVideoListEntryTitleClick}/>
   );
 };
 
@@ -14,13 +14,13 @@ const VideoListContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    videos: state.videoListReducer.videos
+    videos: state.videoList
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ourChangeVideo: (video) => dispatch(changeVideo(video))
+    handleVideoListEntryTitleClick: (video) => dispatch(changeVideo(video))
   };
 };
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import handleSearchChange from '../actions/search.js';
 
 const SearchContainer = (props) => (
-  <Search handleSearchInputChange={props.reduxFetch} />
+  <Search handleSearchInputChange={props.handleSearchInputChange} />
 );
 
 //TODO: define a SearchContainer component which will hook up your action
@@ -13,7 +13,7 @@ const SearchContainer = (props) => (
 //state and dispatch mappings.
 const mapDispatchToProps = (dispatch) => {
   return {
-    reduxFetch: (q) => dispatch(handleSearchChange(q))
+    handleSearchInputChange: (q) => dispatch(handleSearchChange(q))
   };
 };
 
