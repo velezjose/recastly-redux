@@ -10,7 +10,7 @@ const videoListReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_VIDEO_LIST':
       return {
-        videos: action.payload
+        videos: action.videos
       };
     default:
       return state;
