@@ -1,6 +1,6 @@
 import searchYouTube from '../lib/searchYouTube.js';
 import changeVideoList from './videoList.js';
-import changeVideo from './currentVideo.js';
+import { startChangeVideo } from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
 const handleVideoSearch = (q) => {
@@ -11,19 +11,11 @@ const handleVideoSearch = (q) => {
   };
 
   return dispatch => {
-    // fetch(url)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     dispatch(changeVideo(data.items[0]));
-    //     dispatch(changeVideoList(data.items));
-    //   })
     searchYouTube(options, (data) => {
-      dispatch(changeVideo(data[0]));
+      dispatch(startChangeVideo(data[0].id.videoId));
       dispatch(changeVideoList(data));
     });
   };
 };
-
-// var searchYouTube = ({key, query, max = 5}, callback) => {
 
 export default handleVideoSearch;
